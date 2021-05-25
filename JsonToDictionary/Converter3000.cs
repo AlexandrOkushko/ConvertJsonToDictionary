@@ -30,6 +30,13 @@ namespace JsonToDictionary
                     position = _name.ToString().LastIndexOf(':');
                     _name.Remove(position, _name.Length - position);
                 }
+                catch (ArgumentException)
+                {
+                    // skip adding the same values
+
+                    position = _name.ToString().LastIndexOf(':');
+                    _name.Remove(position, _name.Length - position);
+                }
             }
 
             position = _name.ToString().LastIndexOf(':');
